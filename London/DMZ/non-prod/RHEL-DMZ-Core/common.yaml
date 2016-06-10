@@ -7,10 +7,10 @@ classes:
  - firewalld
 
 ntp::enable: true
-ntp::autoupdate: false 
+ntp::autoupdate: false
 ntp::restrict:
  - 127.0.0.1
-ntp::servers: 
+ntp::servers:
  - 0.uk.pool.ntp.org
  - 1.uk.pool.ntp.org
  - 2.uk.pool.ntp.org
@@ -18,7 +18,7 @@ ntp::servers:
 
 apache::ip:
  - '127.0.0.1'
-apache::default_vhost: true 
+apache::default_vhost: true
 apache::service_ensure: 'running'
 apache::logroot: '/var/log/httpd'
 apache::timeout: '100'
