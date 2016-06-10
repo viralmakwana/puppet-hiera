@@ -1,0 +1,65 @@
+---
+classes:
+ - ntp
+# - motd
+ - apache
+ - lch-issueprod
+ - resolver
+ - users 
+ - authorized_keys
+ - hosts
+
+# NTP setup
+ntp::enable: true
+ntp::autoupdate: false 
+ntp::restrict:
+ - 'default kod nomodify nopeer notrap noquery'
+ - '127.0.0.1'
+ntp::servers: 
+ - '3.uk.pool.ntp.org key 1'
+ - 'unxntp01.unix.lch.com key 1'
+ntp::keys_enable: 1
+apache::ip:
+ - '127.0.0.1'
+apache::default_vhost: true 
+apache::service_ensure: 'running'
+apache::logroot: '/var/log/httpd'
+apache::timeout: '190'
+
+
+# sets up /etc/resolv.conf
+resolver::dns_domain: 'example.com'
+resolver::dns_servers:
+ - '192.168.124.1'
+# - '192.168.124.2'
+#resolver::search: 'viral.me.com t.t.com' 
+ 
+
+# creates a simple user, with an encrypted password ( openssl passwd -1 )
+users::users:
+  Admin:
+    comment: "Admin User"
+    home: "/home/ninja"
+    name: "admin"
+    password: "$1$Zqoq1xeA$aA/gHuHvBW1BcXRY08gnE1"
+
+
+
+# Adds my local root key to the root user on the client end. Add one for each user.
+
+authorized_keys::authorized_keys:
+  root:
+    target: "/root/.ssh/authorized_keys"
+    owner: "root"
+    group: "root"
+    keys:  
+     - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCkYhYhuEvCyuCTJNf6KUjd+sGyM7LtbM+QoB23L1Gs1vL+lKgqcOHxzlI/cngxSPY0Mfd+N8M+t+aiywX6XkH+Kc43X0q1ju1m2NM5L8tuj4hJZlLauTKh1S9AtHlV04+AaxkH15Ei6a2eShL5MUXQ8Bq7Leap5zYyuC8zMr7XqxlNQ8lwIVyqcMbq5lCEgM+AGKPnnJLoq5+Wh+yxr4ceaky8QS/o3aveI/q2QC5UEOHMd8A5I2YmxpWOyTNALQvtSTocXpjh/jBaRWbQfvLs0LIMgG1lW0HWCk6LT1Gkn9ZlLvXosaIM4RE0tsg7WuN9Tlm9f4N3vhB8wEaRhNR"
+
+hosts::enable_ipv6_localhost: 'false'
+hosts::purge_hosts: 'true'
+hosts::host_entries:
+  'satellite.example.com':
+   ip: '192.168.124.150'
+   host_aliases:
+
+

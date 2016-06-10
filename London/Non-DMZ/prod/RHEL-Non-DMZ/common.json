@@ -1,0 +1,13 @@
+{
+	"classes": [
+		"firewalld"
+	],
+
+	"firewalld::zone_add_service": {
+		"001": {
+			"zone": "POC",
+			"service": "smtp"
+		}
+
+	}
+}
