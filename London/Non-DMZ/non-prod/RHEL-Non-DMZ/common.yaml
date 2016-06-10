@@ -5,9 +5,8 @@ classes:
 
 # NTP setup
 ntp::enable: true
-ntp::autoupdate: false 
+ntp::autoupdate: false
 ntp::restrict:
  - 127.0.0.1
-ntp::servers: 
- - 3.uk.pool.ntp.org
-
+ntp::servers:
+ - 1.uk.pool.ntp.org
