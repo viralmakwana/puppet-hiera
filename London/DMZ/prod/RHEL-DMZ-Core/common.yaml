@@ -15,7 +15,6 @@ ntp::servers:
  - 1.uk.pool.ntp.org
  - 2.uk.pool.ntp.org
 
-
 apache::ip:
  - '127.0.0.1'
 apache::default_vhost: true

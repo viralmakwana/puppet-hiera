@@ -8,6 +8,7 @@ classes:
  - users
  - authorized_keys
  - hosts
+ - sysctl
 
 # NTP setup
 ntp::enable: true
@@ -61,3 +62,8 @@ hosts::host_entries:
    ip: '192.168.124.150'
    host_aliases:
      - Satellite
+
+#sysctl::entries:
+  #default:
+  #  key: "net.ipv4.ip_local_port_range"
+  #  value: 9000
