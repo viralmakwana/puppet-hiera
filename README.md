@@ -6,4 +6,13 @@ We are filtering from ::location , ::zone , ::env and ::hostgroup. Location refe
 
 You need to ensure that ALL of the puppet modules to be used, are in the content views to be consumed by the hosts. You need to ensure ONLY the auto module is attached to a hostgroup. The auto module contains an include to use hiera classes.
 
+<<<<<<< HEAD
 I am Batman V2
+=======
+<<<<<<< HEAD
+BATMAN
+
+=======
+This is a git commit on development branch, with a pull request V10
+>>>>>>> parent of 5f6ffec... Merge pull request #7 from viralmakwana/development
+>>>>>>> parent of 976a6fd... Update README.md
