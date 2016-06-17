@@ -5,10 +5,4 @@ The hierarchy being used, is visible from the files directory, and it shows the 
 We are filtering from ::location , ::zone , ::env and ::hostgroup. Location refers to the locations defined in Satellite. Zone refers to a parameter set on the host group, as does env. Hostgroup is the name of the hostgroup as defined in Satellite. Ideally you set the zone + env parameter on the hostgroup.
 
 You need to ensure that ALL of the puppet modules to be used, are in the content views to be consumed by the hosts. You need to ensure ONLY the auto module is attached to a hostgroup. The auto module contains an include to use hiera classes.
-
-<<<<<<< HEAD
-This is a git commit on development branch, with a pull request V4
-HAHAH
-=======
-This is a git commit on development branch, with a pull request V10
->>>>>>> 04b8c70d41647ce54bac65490faae5ce02fde078
+TTTTT
